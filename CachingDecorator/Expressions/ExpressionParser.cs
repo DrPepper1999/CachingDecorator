@@ -29,8 +29,7 @@ namespace CachingDecorator.Expressions
                 "ProcessMethodCallExpression supports only method call expressions");
 
             // Converting or evaluating all arguments
-            var arguments = from arg in methodCall.Arguments
-                            select ProcessExpression(arg);
+            var arguments = methodCall.Arguments.Select(ProcessExpression);
 
             var parameters = arguments.ToArray();
 
